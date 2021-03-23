@@ -3,6 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
     
     <!-- Topnav -->
+   <div id="storeTopNav"> 
     <nav class="navbar navbar-top navbar-expand navbar-dark bg-primary border-bottom">
       <div class="container-fluid">
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -237,3 +238,4 @@
         </div>
       </div>
     </nav>
+   </div>

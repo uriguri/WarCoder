@@ -62,6 +62,14 @@
 			<groupId>javax.servlet</groupId>
 			<artifactId>jstl</artifactId>
 		</dependency>
+		
+		<!-- 2021 03 23 저장 시 자동 리로드 -->
+		<dependency>
+        	<groupId>org.springframework.boot</groupId>
+        	<artifactId>spring-boot-devtools</artifactId>
+        	<optional>true</optional>
+    	</dependency>
+    	
 	</dependencies>
 
 	<build>

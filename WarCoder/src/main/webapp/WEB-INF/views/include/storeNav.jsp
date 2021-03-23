@@ -14,50 +14,59 @@
       <div class="navbar-inner">
         <!-- Collapse -->
         <div class="collapse navbar-collapse" id="sidenav-collapse-main">
+        
           <!-- Nav items -->
           <ul class="navbar-nav">
+          
             <li class="nav-item">
-              <a id="sideNav0" class="nav-link active" href="examples/dashboard.html">
+              <a id="sideNav0" class="nav-link" href="http://localhost:8081/store">
                 <i class="ni ni-tv-2 text-primary"></i>
                 <span class="nav-link-text">관리 페이지</span>
               </a>
             </li>
+            
             <li class="nav-item">
-              <a id="sideNav1" class="nav-link" href="javascript:void(0);" onclick="storeProfileView();">
+              <a id="sideNav1" class="nav-link" href="javascript:void(0);" onclick="storeMapView();">
                 <i class="ni ni-pin-3 text-primary"></i>
                 <span class="nav-link-text">주변 매장</span>
               </a>
             </li>
+            
             <li class="nav-item">
               <a id="sideNav2" class="nav-link" href="javascript:void(0);" onclick="storeProfileView();">
                 <i class="ni ni-single-02 text-yellow"></i>
                 <span class="nav-link-text">매장 정보 수정</span>
               </a>
             </li>
+            
             <li class="nav-item">
               <a id="sideNav3" class="nav-link" href="javascript:void(0);" onclick="storeTableView();">
                 <i class="ni ni-bullet-list-67 text-default"></i>
                 <span class="nav-link-text">주문 목록</span>
               </a>
             </li>
+            
             <li class="nav-item">
-              <a id="sideNav4" class="nav-link" href="examples/login.html">
+              <a id="sideNav4" class="nav-link" href="javascript:void(0);" onclick="storeLoginView();">
                 <i class="ni ni-key-25 text-info"></i>
                 <span class="nav-link-text">로그인</span>
               </a>
             </li>
+            
             <li class="nav-item">
-              <a id="sideNav5" class="nav-link" href="examples/register.html">
+              <a id="sideNav5" class="nav-link" href="javascript:void(0);" onclick="storeRegView();">
                 <i class="ni ni-circle-08 text-pink"></i>
                 <span class="nav-link-text">회원가입</span>
               </a>
             </li>
+            
             <li class="nav-item">
-              <a id="sideNav6" class="nav-link" href="examples/upgrade.html">
+              <a id="sideNav6" class="nav-link" href="javascript:void(0);" onclick="storeUpgradeView();">
                 <i class="ni ni-send text-dark"></i>
                 <span class="nav-link-text">업그레이드</span>
               </a>
             </li>
+            
           </ul>
           <!-- Divider -->
           <hr class="my-3">

@@ -29,13 +29,13 @@
 </head>
 
 <body>
-<!-- 관리자 네비바 -->
-<%@ include file="/WEB-INF/views/include/storeNav.jsp"%>
-
+  	<!-- 관리자 네비바 -->	
+	<%@ include file="/WEB-INF/views/include/storeNav.jsp"%>
+	
   <!-- Main content -->
   <div class="main-content" id="panel">
-  
-	<!-- TOP 네비바 -->
+  	
+  	<!-- TOP 네비바 -->
 	<%@ include file="/WEB-INF/views/include/storeTopNav.jsp" %>
 
 	<div id="storeContent">
@@ -49,8 +49,8 @@
               <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
                 <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
                   <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
-                  <li class="breadcrumb-item"><a href="#">Dashboards</a></li>
-                  <li class="breadcrumb-item active" aria-current="page">관리 페이지</li>
+                  <li class="breadcrumb-item"><a href="#">관리 페이지</a></li>
+                  <li class="breadcrumb-item active" aria-current="page">내 매장 현황</li>
                 </ol>
               </nav>
             </div>
@@ -448,6 +448,71 @@
   <script src="assets/js/argon.js?v=1.2.0"></script>
   
    <!-- 네비 클릭시 컨텐츠 영역 변경 -->
+   
+  <script>
+	$(document).ready(function(){
+	 	    
+		// 좌측 네비바 클릭 요소 배경 & 텍스트 강조
+		$('#sideNav0').css('background', '#f6f9fc');
+		$('.nav-link-text').eq(0).css('color', 'black');
+		
+	});
+  </script>
+   
+  <script>
+  function storeMapView(){
+	  
+	  var storeMapView = '';
+	  storeMapView += '<!-- Header -->';
+	  storeMapView += '<div class="header bg-primary pb-6">';
+	  storeMapView += '<div class="container-fluid">';
+	  storeMapView += '<div class="header-body">';
+	  storeMapView += '<div class="row align-items-center py-4">';
+	  storeMapView += '<div class="col-lg-6 col-7">';
+	  storeMapView += '<h6 class="h2 text-white d-inline-block mb-0">내 주변 매장</h6>';
+	  storeMapView += '<nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">';
+	  storeMapView += '<ol class="breadcrumb breadcrumb-links breadcrumb-dark">';
+	  storeMapView += '<li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>';
+	  storeMapView += '<li class="breadcrumb-item"><a href="#">지도</a></li>';
+	  storeMapView += '<li class="breadcrumb-item active" aria-current="page">주변 매장</li>';
+	  storeMapView += '</ol>';
+	  storeMapView += '</nav>';
+	  storeMapView += '</div>';
+	  storeMapView += '<div class="col-lg-6 col-5 text-right">';
+	  storeMapView += '<a href="#" class="btn btn-sm btn-neutral">New</a>';
+	  storeMapView += '<a href="#" class="btn btn-sm btn-neutral">Filters</a>';
+	  storeMapView += '</div>';
+	  storeMapView += '</div>';
+	  storeMapView += '</div>';
+	  storeMapView += '</div>';
+	  storeMapView += '</div>';
+	  storeMapView += '<!-- Page content -->';
+	  storeMapView += '<div class="container-fluid mt--6">';
+	  storeMapView += '<div class="row">';
+	  storeMapView += '<div class="col">';
+	  storeMapView += '<div class="card border-0">';
+	  storeMapView += '<div id="map-default" class="map-canvas" data-lat="40.748817" data-lng="-73.985428" style="height: 600px;"></div>';
+	  storeMapView += '</div>';
+	  storeMapView += '</div>';
+	  storeMapView += '</div>';
+	  storeMapView += '</div>';
+	  storeMapView += '</div>';
+	  
+  	  // 콘텐츠 내용 변경
+	  $('#storeContent').html(storeMapView);
+  	
+  	  // 좌측 네비바 CSS 기본 값으로 초기화
+	  $("#sideNav0, #sideNav1, #sideNav2, #sideNav3, #sideNav4, #sideNav5, #sideNav6").css('background', 'white');
+  	  $('.nav-link-text').css('color','#525f7f');
+  	
+	    
+  	  // 좌측 네비바 클릭 요소 배경 & 텍스트 강조
+	  $('#sideNav1').css('background', '#f6f9fc');
+  	  $('.nav-link-text').eq(1).css('color', 'black');
+	  
+  }
+  </script>
+   
   <script>
   function storeProfileView() {
 	  
@@ -596,7 +661,7 @@
     	
 	    
     	// 좌측 네비바 클릭 요소 배경 & 텍스트 강조
-	    $('#sideNav3').css('background', '#f6f9fc');
+	    $('#sideNav2').css('background', '#f6f9fc');
     	$('.nav-link-text').eq(2).css('color', 'black');
   }
   </script>
@@ -612,12 +677,12 @@
 	  storeTableView +='<div class="header-body">';
 	  storeTableView +='<div class="row align-items-center py-4">';
 	  storeTableView +='<div class="col-lg-6 col-7">';
-	  storeTableView +='<h6 class="h2 text-white d-inline-block mb-0">Tables</h6>';
+	  storeTableView +='<h6 class="h2 text-white d-inline-block mb-0">주문 내역</h6>';
 	  storeTableView +='<nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">';
 	  storeTableView +='<ol class="breadcrumb breadcrumb-links breadcrumb-dark">';
 	  storeTableView +='<li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>';
-	  storeTableView +='<li class="breadcrumb-item"><a href="#">Tables</a></li>';
-	  storeTableView +='<li class="breadcrumb-item active" aria-current="page">Tables</li>';
+	  storeTableView +='<li class="breadcrumb-item"><a href="#">주문</a></li>';
+	  storeTableView +='<li class="breadcrumb-item active" aria-current="page">주문 내역</li>';
 	  storeTableView +='</ol>';
 	  storeTableView +='</nav>';
 	  storeTableView +='</div>';
@@ -1435,6 +1500,344 @@
   	// 좌측 네비바 클릭 요소 배경 & 텍스트 강조
 	$('#sideNav6').css('background', '#f6f9fc');
   	$('.nav-link-text').eq(6).css('color', 'black');
+	  
+  }
+  </script>
+  
+  <script>
+  function storeRegView(){
+	  
+  	  var storeRegView = '';
+  	  
+	  // Main content
+	  storeRegView += '<div class="main-content">';
+	  
+	  // Header
+	  storeRegView += '<div class="header bg-gradient-primary py-7 py-lg-8 pt-lg-9">';
+	  storeRegView += '<div class="container">';
+	  storeRegView += '<div class="header-body text-center mb-7">';
+	  storeRegView += '<div class="row justify-content-center">';
+	  storeRegView += '<div class="col-xl-5 col-lg-6 col-md-8 px-5">';
+	  storeRegView += '<h1 class="text-white">W A L K + O R D E R</h1>';
+	  storeRegView += '<p class="text-lead text-white">가입을 진심으로 환영합니다. </p>';
+	  storeRegView += '</div>';
+	  storeRegView += '</div>';
+	  storeRegView += '</div>';
+	  storeRegView += '</div>';
+	  storeRegView += '<div class="separator separator-bottom separator-skew zindex-100">';
+	  storeRegView += '<svg x="0" y="0" viewBox="0 0 2560 100" preserveAspectRatio="none" version="1.1" xmlns="http://www.w3.org/2000/svg">';
+	  storeRegView += '<polygon class="fill-default" points="2560 0 2560 100 0 100"></polygon>';
+	  storeRegView += '</svg>';
+	  storeRegView += '</div>';
+	  storeRegView += '</div>';
+	  
+	  // Page content
+	  storeRegView += '<div class="container mt--8 pb-5">';
+	  
+	  // Table
+	  storeRegView += '<div class="row justify-content-center">';
+	  storeRegView += '<div class="col-lg-6 col-md-8">';
+	  storeRegView += '<div class="card bg-secondary border-0">';
+	  storeRegView += '<div class="card-header bg-transparent pb-5">';
+	  storeRegView += '<div class="text-muted text-center mt-2 mb-4"><small>소셜 로그인</small></div>';
+	  storeRegView += '<div class="text-center">';
+	  storeRegView += '<a href="#" class="btn btn-neutral btn-icon mr-4">';
+	  storeRegView += '<span class="btn-inner--icon"><img src="../assets/img/icons/common/github.svg"></span>';
+	  storeRegView += '<span class="btn-inner--text">Github</span>';
+	  storeRegView += '</a>';
+	  storeRegView += '<a href="#" class="btn btn-neutral btn-icon">';
+	  storeRegView += '<span class="btn-inner--icon"><img src="../assets/img/icons/common/google.svg"></span>';
+	  storeRegView += '<span class="btn-inner--text">Google</span>';
+	  storeRegView += '</a>';
+	  storeRegView += '</div>';
+	  storeRegView += '</div>';
+	  storeRegView += '<div class="card-body px-lg-5 py-lg-5">';
+	  storeRegView += '<div class="text-center text-muted mb-4">';
+	  storeRegView += '<small>또는, 일반 회원가입</small>';
+	  storeRegView += '</div>';
+	  storeRegView += '<form role="form">';
+	  storeRegView += '<div class="form-group">';
+	  storeRegView += '<div class="input-group input-group-merge input-group-alternative mb-3">';
+	  storeRegView += '<div class="input-group-prepend">';
+	  storeRegView += '<span class="input-group-text"><i class="ni ni-hat-3"></i></span>';
+	  storeRegView += '</div>';
+	  storeRegView += '<input class="form-control" placeholder="ID" type="text">';
+	  storeRegView += '</div>';
+	  storeRegView += '</div>';
+	  storeRegView += '<div class="form-group">';
+	  storeRegView += '<div class="input-group input-group-merge input-group-alternative mb-3">';
+	  storeRegView += '<div class="input-group-prepend">';
+	  storeRegView += '<span class="input-group-text"><i class="ni ni-hat-3"></i></span>';
+	  storeRegView += '</div>';
+	  storeRegView += '<input class="form-control" placeholder="Nick Name" type="text">';
+	  storeRegView += '</div>';
+	  storeRegView += '</div>';
+	  storeRegView += '<div class="form-group">';
+	  storeRegView += '<div class="input-group input-group-merge input-group-alternative mb-3">';
+	  storeRegView += '<div class="input-group-prepend">';
+	  storeRegView += '<span class="input-group-text"><i class="ni ni-email-83"></i></span>';
+	  storeRegView += '</div>';
+	  storeRegView += '<input class="form-control" placeholder="E-Mail" type="email">';
+	  storeRegView += '</div>';
+	  storeRegView += '</div>';
+	  storeRegView += '<div class="form-group">';
+	  storeRegView += '<div class="input-group input-group-merge input-group-alternative mb-3">';
+	  storeRegView += '<div class="input-group-prepend">';
+	  storeRegView += '<span class="input-group-text"><i class="ni ni-hat-3"></i></span>';
+	  storeRegView += '</div>';
+	  storeRegView += '<input class="form-control" placeholder="매장 주소 >쪽에 버튼 삽입" type="text">';
+	  storeRegView += '</div>';
+	  storeRegView += '</div>';
+	  storeRegView += '<div class="form-group">';
+	  storeRegView += '<div class="input-group input-group-merge input-group-alternative mb-3">';
+	  storeRegView += '<div class="input-group-prepend">';
+	  storeRegView += '<span class="input-group-text"><i class="ni ni-hat-3"></i></span>';
+	  storeRegView += '</div>';
+	  storeRegView += '<input class="form-control" placeholder="Store Photo(파일업로드)" type="text">';
+	  storeRegView += '</div>';
+	  storeRegView += '</div>';
+	  storeRegView += '<div class="form-group">';
+	  storeRegView += '<div class="input-group input-group-merge input-group-alternative">';
+	  storeRegView += '<div class="input-group-prepend">';
+	  storeRegView += '<span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>';
+	  storeRegView += '</div>';
+	  storeRegView += '<input class="form-control" placeholder="Password" type="password">';
+	  storeRegView += '</div>';
+	  storeRegView += '</div>';
+	  storeRegView += '<div class="text-muted font-italic"><small>password strength: <span class="text-success font-weight-700">strong</span></small></div>';
+	  storeRegView += '<div class="row my-4">';
+	  storeRegView += '<div class="col-12">';
+	  storeRegView += '<div class="custom-control custom-control-alternative custom-checkbox">';
+	  storeRegView += '<input class="custom-control-input" id="customCheckRegister" type="checkbox">';
+	  storeRegView += '<label class="custom-control-label" for="customCheckRegister">';
+	  storeRegView += '<span class="text-muted">매장 회원은 관리자의 승인 후 로그인이 가능합니다.</span>';
+	  storeRegView += '</label>';
+	  storeRegView += '</div>';
+	  storeRegView += '</div>';
+	  storeRegView += '</div>';
+	  storeRegView += '<div class="text-center">';
+	  storeRegView += '<button type="button" class="btn btn-primary mt-4">회원 가입</button>';
+	  storeRegView += '</div>';
+	  storeRegView += '</form>';
+	  storeRegView += '</div>';
+	  storeRegView += '</div>';
+	  storeRegView += '</div>';
+	  storeRegView += '</div>';
+	  storeRegView += '</div>';
+	  storeRegView += '</div>';
+	  
+	  
+	  	// 상단 네비 변경 (비 로그인 상태)
+	  	storeNoLoginNavChange();
+	  	
+	  	// 상단 네비 회원가입 버튼 빈칸으로
+	  	$('#storeTopNavReg').html('');
+	  	
+	  	// 좌측 네비 보이지 않게
+	  	storeSideNavHide();
+	  	
+		// 콘텐츠 내용 변경
+		$('#storeContent').html(storeRegView);
+	  	
+  }
+  
+  </script>
+  
+  <script>
+  function storeLoginView(){
+	  
+	  var storeLoginView = '';
+	  
+	  // Main content
+	  storeLoginView += '<div class="main-content">';
+	  
+	  // Header
+	  storeLoginView += '<div class="header bg-gradient-primary py-7 py-lg-8 pt-lg-9">';
+	  storeLoginView += '<div class="container">';
+	  storeLoginView += '<div class="header-body text-center mb-7">';
+	  storeLoginView += '<div class="row justify-content-center">';
+	  storeLoginView += '<div class="col-xl-5 col-lg-6 col-md-8 px-5">';
+	  storeLoginView += '<h1 class="text-white">환영합니다!</h1>';
+	  storeLoginView += '<p class="text-lead text-white">W A L K + O R D E R <br>';
+	  storeLoginView += '관리자 로그인 페이지 입니다.';
+	  storeLoginView += '</p>';
+	  storeLoginView += '</div>';
+	  storeLoginView += '</div>';
+	  storeLoginView += '</div>';
+	  storeLoginView += '</div>';
+	  storeLoginView += '<div class="separator separator-bottom separator-skew zindex-100">';
+	  storeLoginView += '<svg x="0" y="0" viewBox="0 0 2560 100" preserveAspectRatio="none" version="1.1" xmlns="http://www.w3.org/2000/svg">';
+	  storeLoginView += '<polygon class="fill-default" points="2560 0 2560 100 0 100"></polygon>';
+	  storeLoginView += '</svg>';
+	  storeLoginView += '</div>';
+	  storeLoginView += '</div>';
+	  
+	  // Page content
+	  storeLoginView += '<div class="container mt--8 pb-5">';
+	  storeLoginView += '<div class="row justify-content-center">';
+	  storeLoginView += '<div class="col-lg-5 col-md-7">';
+	  storeLoginView += '<div class="card bg-secondary border-0 mb-0">';
+	  storeLoginView += '<div class="card-header bg-transparent pb-5">';
+	  storeLoginView += '<div class="text-muted text-center mt-2 mb-3"><small>소셜 로그인</small></div>';
+	  storeLoginView += '<div class="btn-wrapper text-center">';
+	  storeLoginView += '<a href="#" class="btn btn-neutral btn-icon">';
+	  storeLoginView += '<span class="btn-inner--icon"><img src="../assets/img/icons/common/github.svg"></span>';
+	  storeLoginView += '<span class="btn-inner--text">Github</span>';
+	  storeLoginView += '</a>';
+	  storeLoginView += '<a href="#" class="btn btn-neutral btn-icon">';
+	  storeLoginView += '<span class="btn-inner--icon"><img src="../assets/img/icons/common/google.svg"></span>';
+	  storeLoginView += '<span class="btn-inner--text">Google</span>';
+	  storeLoginView += '</a>';
+	  storeLoginView += '</div>';
+	  storeLoginView += '</div>';
+	  storeLoginView += '<div class="card-body px-lg-5 py-lg-5">';
+	  storeLoginView += '<div class="text-center text-muted mb-4">';
+	  storeLoginView += '<small>또는, 일반 로그인</small>';
+	  storeLoginView += '</div>';
+	  storeLoginView += '<form role="form">';
+	  storeLoginView += '<div class="form-group mb-3">';
+	  storeLoginView += '<div class="input-group input-group-merge input-group-alternative">';
+	  storeLoginView += '<div class="input-group-prepend">';
+	  storeLoginView += '    <span class="input-group-text"><i class="ni ni-email-83"></i></span>';
+	  storeLoginView += '</div>';
+	  storeLoginView += '<input class="form-control" placeholder="Email" type="email">';
+	  storeLoginView += '</div>';
+	  storeLoginView += '</div>';
+	  storeLoginView += '<div class="form-group">';
+	  storeLoginView += '<div class="input-group input-group-merge input-group-alternative">';
+	  storeLoginView += '<div class="input-group-prepend">';
+	  storeLoginView += '    <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>';
+	  storeLoginView += '</div>';
+	  storeLoginView += '<input class="form-control" placeholder="Password" type="password">';
+	  storeLoginView += '</div>';
+	  storeLoginView += '</div>';
+	  storeLoginView += '<div class="custom-control custom-control-alternative custom-checkbox">';
+	  storeLoginView += '<input class="custom-control-input" id=" customCheckLogin" type="checkbox">';
+	  storeLoginView += '<label class="custom-control-label" for=" customCheckLogin">';
+	  storeLoginView += '<span class="text-muted">아이디 기억하기</span>';
+	  storeLoginView += '</label>';
+	  storeLoginView += '</div>';
+	  storeLoginView += '<div class="text-center">';
+	  storeLoginView += '<button type="button" class="btn btn-primary my-4">LOGIN</button>';
+	  storeLoginView += '</div>';
+	  storeLoginView += '</form>';
+	  storeLoginView += '</div>';
+	  storeLoginView += '</div>';
+	  storeLoginView += '<div class="row mt-3">';
+	  storeLoginView += '<div class="col-6">';
+	  storeLoginView += '<a href="#" class="text-light"><small>비밀번호를 잊으셨나요?</small></a>';
+	  storeLoginView += '</div>';
+	  storeLoginView += '<div class="col-6 text-right">';
+	  storeLoginView += '<a href="#" class="text-light"><small>회원가입이 필요하다면?</small></a>';
+	  storeLoginView += '</div>';
+	  storeLoginView += '</div>';
+	  storeLoginView += '</div>';
+	  storeLoginView += '</div>';
+	  storeLoginView += '</div>';
+	  storeLoginView += '</div>';
+	  
+	  	// 상단 네비 변경 (비 로그인 상태)
+	  	storeNoLoginNavChange();
+	  	
+	    // 상단 네비 로그인 버튼 빈칸으로
+	  	$('#storeTopNavLogin').html('');
+	  	
+	  	// 좌측 네비 보이지 않게
+	  	storeSideNavHide();
+	  	
+		// 콘텐츠 내용 변경
+		$('#storeContent').html(storeLoginView);
+	  	
+	  
+  }
+  
+  
+  </script>
+  
+  <script>
+  function storeNoLoginNavChange(){
+	  
+	  var storeNoLoginTopNav = '';
+	  
+      storeNoLoginTopNav += '<nav id="navbar-main" class="navbar navbar-horizontal navbar-transparent navbar-main navbar-expand-lg navbar-light">';
+	  storeNoLoginTopNav += '<div class="container">';
+	  storeNoLoginTopNav += '<a class="navbar-brand" href="/views/store.jsp">';
+	  storeNoLoginTopNav += '<img src="../assets/img/brand/white.png">';
+	  storeNoLoginTopNav += '</a>';
+	  storeNoLoginTopNav += '<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">';
+	  storeNoLoginTopNav += '<span class="navbar-toggler-icon"></span>';
+	  storeNoLoginTopNav += '</button>';
+	  storeNoLoginTopNav += '<div class="navbar-collapse navbar-custom-collapse collapse" id="navbar-collapse">';
+	  storeNoLoginTopNav += '<div class="navbar-collapse-header">';
+	  storeNoLoginTopNav += '<div class="row">';
+	  storeNoLoginTopNav += '<div class="col-6 collapse-brand">';
+	  storeNoLoginTopNav += '<a href="dashboard.html">';
+	  storeNoLoginTopNav += '<img src="../assets/img/brand/blue.png">';
+	  storeNoLoginTopNav += '</a>';
+	  storeNoLoginTopNav += '</div>';
+	  storeNoLoginTopNav += '<div class="col-6 collapse-close">';
+	  storeNoLoginTopNav += '<button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">';
+	  storeNoLoginTopNav += '<span></span>';
+	  storeNoLoginTopNav += '<span></span>';
+	  storeNoLoginTopNav += '</button>';
+	  storeNoLoginTopNav += '</div>';
+	  storeNoLoginTopNav += '</div>';
+	  storeNoLoginTopNav += '</div>';
+	  storeNoLoginTopNav += '<ul class="navbar-nav mr-auto">';
+	  storeNoLoginTopNav += '<li class="nav-item">';
+	  storeNoLoginTopNav += '<a href="http://localhost:8081/store" class="nav-link">';
+	  storeNoLoginTopNav += '<span class="nav-link-inner--text">관리페이지</span>';
+	  storeNoLoginTopNav += '</a>';
+	  storeNoLoginTopNav += '</li>';
+	  storeNoLoginTopNav += '<li class="nav-item" id="storeTopNavLogin">';
+	  storeNoLoginTopNav += '<a class="nav-link" href="javascript:void(0);" onclick="storeLoginView();">';
+	  storeNoLoginTopNav += '<span class="nav-link-inner--text" >로그인</span>';
+	  storeNoLoginTopNav += '</a>';
+	  storeNoLoginTopNav += '</li>';
+	  storeNoLoginTopNav += '<li class="nav-item" id="storeTopNavReg">';
+	  storeNoLoginTopNav += '<a class="nav-link" href="javascript:void(0);" onclick="storeRegView();">';
+	  storeNoLoginTopNav += '<span class="nav-link-inner--text" >회원가입</span>';
+	  storeNoLoginTopNav += '</a>';
+	  storeNoLoginTopNav += '</li>';
+	  storeNoLoginTopNav += '</ul>';
+	  storeNoLoginTopNav += '<hr class="d-lg-none" />';
+	  storeNoLoginTopNav += '<ul class="navbar-nav align-items-lg-center ml-lg-auto">';
+	  storeNoLoginTopNav += '';
+	  storeNoLoginTopNav += '<li class="nav-item">';
+	  storeNoLoginTopNav += '<a class="nav-link nav-link-icon" href="https://github.com/creativetimofficial" target="_blank" data-toggle="tooltip" data-original-title="개발자 깃허브">';
+	  storeNoLoginTopNav += '<i class="fab fa-github"></i>';
+	  storeNoLoginTopNav += '<span class="nav-link-inner--text d-lg-none">Github</span>';
+	  storeNoLoginTopNav += '</a>';
+	  storeNoLoginTopNav += '</li>';
+	  storeNoLoginTopNav += '<li class="nav-item d-none d-lg-block ml-lg-4">';
+	  storeNoLoginTopNav += '<a href="https://www.creative-tim.com/product/argon-dashboard-pro?ref=ad_upgrade_pro" target="_blank" class="btn btn-neutral btn-icon">';
+	  storeNoLoginTopNav += '<span class="btn-inner--icon">';
+	  storeNoLoginTopNav += '<i class="fas fa-shopping-cart mr-2"></i>';
+	  storeNoLoginTopNav += '</span>';
+	  storeNoLoginTopNav += '<span class="nav-link-inner--text">PRO 기능 업그레이드!</span>';
+	  storeNoLoginTopNav += '</a>';
+	  storeNoLoginTopNav += '</li>';
+	  storeNoLoginTopNav += '</ul>';
+	  storeNoLoginTopNav += '</div>';
+	  storeNoLoginTopNav += '</div>';
+	  storeNoLoginTopNav += '</nav>';
+	  
+		// 상단 네비 변경 (비 로그인 상태 회원가입&로그인 페이지 사용)
+		$('#storeTopNav').html(storeNoLoginTopNav);
+  }
+  
+  </script>
+  
+  <script>
+  function storeSideNavHide(){
+	  
+	  $('#sidenav-main').css('transform','translateX(-250px)');
+	  $('#panel').css('margin','0px');
+  }
+  </script>
+  
+  <script>
+  function storeNoLoginNav(){
 	  
   }
   </script>
