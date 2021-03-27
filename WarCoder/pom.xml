@@ -70,6 +70,13 @@
         	<optional>true</optional>
     	</dependency>
     	
+    	<!-- 2021 03 27 스프링 시큐리티 임포트 -->
+    	<dependency>
+  			<groupId>org.springframework.boot</groupId>
+  			<artifactId>spring-boot-starter-security</artifactId>
+		</dependency>
+    	
+    	
 	</dependencies>
 
 	<build>

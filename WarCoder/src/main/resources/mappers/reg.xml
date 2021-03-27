@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.wo.store.dao.StoreDao">
+
+	<insert id="insertStoreMember" 
+			parameterType="com.wo.store.domain.Store" 
+			useGeneratedKeys="true" 
+			keyProperty="stoIdx">
+	
+	INSERT INTO StoreMember 
+		(
+			stoId, 
+			stoPw, 
+			stoEmail, 
+			stoName, 
+			stoAddr, 
+			stoPhoto, 
+			stoCheck,
+			stoUserRole 
+		) 
+	VALUES 
+		(
+			#{stoId},
+			#{stoPw},
+			#{stoEmail},
+			#{stoName},
+			#{stoAddr},
+			#{stoPhoto},
+			#{stoCheck},
+			#{stoUserRole}
+		)
+	
+	</insert>
+
+
+</mapper>
