@@ -19,7 +19,7 @@
           <ul class="navbar-nav">
           
             <li class="nav-item">
-              <a id="sideNav0" class="nav-link" href="http://localhost:8081/store">
+              <a id="sideNav0" class="nav-link" href="http://localhost:8081/">
                 <i class="ni ni-tv-2 text-primary"></i>
                 <span class="nav-link-text">관리 페이지</span>
               </a>

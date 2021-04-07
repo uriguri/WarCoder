@@ -13,18 +13,18 @@
   <title>Argon Dashboard - Free Dashboard for Bootstrap 4</title>
   
   <!-- Favicon -->
-  <link rel="icon" href="assets/img/brand/favicon.png" type="image/png">
+  <link rel="icon" href="/assets/img/brand/favicon.png" type="image/png">
   
   <!-- Fonts -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
   
   <!-- Icons -->
-  <link rel="stylesheet" href="assets/vendor/nucleo/css/nucleo.css" type="text/css">
-  <link rel="stylesheet" href="assets/vendor/@fortawesome/fontawesome-free/css/all.min.css" type="text/css">
+  <link rel="stylesheet" href="/assets/vendor/nucleo/css/nucleo.css" type="text/css">
+  <link rel="stylesheet" href="/assets/vendor/@fortawesome/fontawesome-free/css/all.min.css" type="text/css">
   
   <!-- Page plugins -->
   <!-- Argon CSS -->
-  <link rel="stylesheet" href="assets/css/argon.css?v=1.2.0" type="text/css">
+  <link rel="stylesheet" href="/assets/css/argon.css?v=1.2.0" type="text/css">
 
 </head>
 
@@ -1555,7 +1555,7 @@
 	  storeRegView += '<div class="text-center text-muted mb-4">';
 	  storeRegView += '<small>또는, 일반 회원가입</small>';
 	  storeRegView += '</div>';
-	  storeRegView += '<form role="form">';
+	  storeRegView += '<form name="storeRegForm" role="form">';
 	  storeRegView += '<div class="form-group">';
 	  storeRegView += '<div class="input-group input-group-merge input-group-alternative mb-3">';
 	  storeRegView += '<div class="input-group-prepend">';
@@ -1616,7 +1616,7 @@
 	  storeRegView += '</div>';
 	  storeRegView += '</div>';
 	  storeRegView += '<div class="text-center">';
-	  storeRegView += '<button type="button" class="btn btn-primary mt-4">회원 가입</button>';
+	  storeRegView += '<button id="storeRegBtn" type="button" class="btn btn-primary mt-4">회원 가입</button>';
 	  storeRegView += '</div>';
 	  storeRegView += '</form>';
 	  storeRegView += '</div>';
@@ -1640,6 +1640,12 @@
 		$('#storeContent').html(storeRegView);
 	  	
   }
+  
+  //회원 가입 버튼
+  $(document).on("click", "#storeRegBtn", function(){
+	   var regFormData = $('#storeRegForm').serialize();
+	   console.log(regFormData);
+  });
   
   </script>
   
@@ -1694,13 +1700,13 @@
 	  storeLoginView += '<div class="text-center text-muted mb-4">';
 	  storeLoginView += '<small>또는, 일반 로그인</small>';
 	  storeLoginView += '</div>';
-	  storeLoginView += '<form role="form">';
+	  storeLoginView += '<form method="post" role="form">';
 	  storeLoginView += '<div class="form-group mb-3">';
 	  storeLoginView += '<div class="input-group input-group-merge input-group-alternative">';
 	  storeLoginView += '<div class="input-group-prepend">';
 	  storeLoginView += '    <span class="input-group-text"><i class="ni ni-email-83"></i></span>';
 	  storeLoginView += '</div>';
-	  storeLoginView += '<input class="form-control" placeholder="Email" type="email">';
+	  storeLoginView += '<input id="storeLoginId" class="form-control" placeholder="ID" type="text">';
 	  storeLoginView += '</div>';
 	  storeLoginView += '</div>';
 	  storeLoginView += '<div class="form-group">';
@@ -1708,7 +1714,7 @@
 	  storeLoginView += '<div class="input-group-prepend">';
 	  storeLoginView += '    <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>';
 	  storeLoginView += '</div>';
-	  storeLoginView += '<input class="form-control" placeholder="Password" type="password">';
+	  storeLoginView += '<input id="storeLoginPw" class="form-control" placeholder="Password" type="password">';
 	  storeLoginView += '</div>';
 	  storeLoginView += '</div>';
 	  storeLoginView += '<div class="custom-control custom-control-alternative custom-checkbox">';
@@ -1718,7 +1724,7 @@
 	  storeLoginView += '</label>';
 	  storeLoginView += '</div>';
 	  storeLoginView += '<div class="text-center">';
-	  storeLoginView += '<button type="button" class="btn btn-primary my-4">LOGIN</button>';
+	  storeLoginView += '<button id="storeLoginBtn" type="button" class="btn btn-primary my-4">LOGIN</button>';
 	  storeLoginView += '</div>';
 	  storeLoginView += '</form>';
 	  storeLoginView += '</div>';
@@ -1750,7 +1756,7 @@
 	  	
 	  
   }
-  
+ 
   
   </script>
   
@@ -1761,7 +1767,7 @@
 	  
       storeNoLoginTopNav += '<nav id="navbar-main" class="navbar navbar-horizontal navbar-transparent navbar-main navbar-expand-lg navbar-light">';
 	  storeNoLoginTopNav += '<div class="container">';
-	  storeNoLoginTopNav += '<a class="navbar-brand" href="/views/store.jsp">';
+	  storeNoLoginTopNav += '<a class="navbar-brand" href="http://localhost:8081/">';
 	  storeNoLoginTopNav += '<img src="../assets/img/brand/white.png">';
 	  storeNoLoginTopNav += '</a>';
 	  storeNoLoginTopNav += '<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">';
@@ -1785,7 +1791,7 @@
 	  storeNoLoginTopNav += '</div>';
 	  storeNoLoginTopNav += '<ul class="navbar-nav mr-auto">';
 	  storeNoLoginTopNav += '<li class="nav-item">';
-	  storeNoLoginTopNav += '<a href="http://localhost:8081/store" class="nav-link">';
+	  storeNoLoginTopNav += '<a href="http://localhost:8081/" class="nav-link">';
 	  storeNoLoginTopNav += '<span class="nav-link-inner--text">관리페이지</span>';
 	  storeNoLoginTopNav += '</a>';
 	  storeNoLoginTopNav += '</li>';
